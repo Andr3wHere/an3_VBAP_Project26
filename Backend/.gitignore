@@ -31,3 +31,47 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# IDE Settings
+.idea/
+.eclipse/
+
+# Build Files
+out/
+
+# System Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Dependency Directories
+bower_components/
+node_modules/
+
+# Environment Files
+.env
+application.properties placeholder=
+application.yml placeholder=
+application.properties.example
+
+# Logs
+*.log
+*.txt
+logs/
+
+# Build Tools
+.gradle/
+.m2/
+
+# Testing
+test-reports/
+coverage/
+
+# Temporary Files
+*.swp
+*.tmp
+*~
+.\#*
+
+# Backup Files
+*.bak
