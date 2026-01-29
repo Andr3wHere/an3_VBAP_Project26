@@ -1,9 +1,7 @@
 package cz.osu.backend.model.db;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.List;
@@ -35,9 +33,13 @@ public class Course {
     private User teacher;
 
     @ManyToMany(mappedBy = "courses")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<User> users = new HashSet<>();
 
     @OneToMany
     @JoinColumn(name = "review_id")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<Review> reviews;
 }

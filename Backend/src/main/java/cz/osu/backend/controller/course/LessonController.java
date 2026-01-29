@@ -1,7 +1,7 @@
-package cz.osu.backend.controller;
+package cz.osu.backend.controller.course;
 
 import cz.osu.backend.model.db.Lesson;
-import cz.osu.backend.model.json.LessonRequestDTO;
+import cz.osu.backend.model.dto.course.LessonRequestDTO;
 import cz.osu.backend.service.LessonService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -20,18 +20,18 @@ public class LessonController {
     }
 
     @PostMapping
-    public ResponseEntity<Lesson> createLesson(@Valid @RequestBody LessonRequestDTO request) {
-        return ResponseEntity.ok(lessonService.createLesson(request));
+    public Lesson createLesson(@Valid @RequestBody LessonRequestDTO request) {
+        return lessonService.createLesson(request);
     }
 
     @GetMapping("/course/{courseId}")
-    public ResponseEntity<List<Lesson>> getLessonsByCourse(@PathVariable UUID courseId) {
-        return ResponseEntity.ok(lessonService.getLessonsByCourse(courseId));
+    public List<Lesson> getLessonsByCourse(@PathVariable UUID courseId) {
+        return lessonService.getLessonsByCourse(courseId);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Lesson> getLessonById(@PathVariable UUID id) {
-        return ResponseEntity.ok(lessonService.getLessonById(id));
+    public Lesson getLessonById(@PathVariable UUID id) {
+        return lessonService.getLessonById(id);
     }
 
     @PutMapping("/{id}")

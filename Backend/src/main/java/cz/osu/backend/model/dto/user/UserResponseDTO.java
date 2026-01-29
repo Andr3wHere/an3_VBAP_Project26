@@ -1,5 +1,6 @@
-package cz.osu.backend.model.json;
+package cz.osu.backend.model.dto.user;
 
+import cz.osu.backend.model.enums.UserRole;
 import lombok.Data;
 
 import java.util.UUID;

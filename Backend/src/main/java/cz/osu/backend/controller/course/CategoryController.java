@@ -1,8 +1,8 @@
-package cz.osu.backend.controller;
+package cz.osu.backend.controller.course;
 
 import cz.osu.backend.model.db.Category;
-import cz.osu.backend.model.json.CategoryRequestDTO;
-import cz.osu.backend.model.json.CategoryResponseDTO;
+import cz.osu.backend.model.dto.course.CategoryRequestDTO;
+import cz.osu.backend.model.dto.course.CategoryResponseDTO;
 import cz.osu.backend.service.CategoryService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -21,23 +21,23 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<CategoryResponseDTO> createCategory(@Valid @RequestBody CategoryRequestDTO request) {
-        return ResponseEntity.ok(categoryService.createCategory(request));
+    public CategoryResponseDTO createCategory(@Valid @RequestBody CategoryRequestDTO request) {
+        return categoryService.createCategory(request);
     }
 
     @GetMapping
-    public ResponseEntity<List<Category>> getAllCategories() {
-        return ResponseEntity.ok(categoryService.getAllCategories());
+    public List<Category> getAllCategories() {
+        return categoryService.getAllCategories();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Category> getCategoryById(@PathVariable UUID id) {
-        return ResponseEntity.ok(categoryService.getCategoryById(id));
+    public Category getCategoryById(@PathVariable UUID id) {
+        return categoryService.getCategoryById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CategoryResponseDTO> updateCategory(@PathVariable UUID id, @Valid @RequestBody CategoryRequestDTO request) {
-        return ResponseEntity.ok(categoryService.updateCategory(id, request));
+    public CategoryResponseDTO updateCategory(@PathVariable UUID id, @Valid @RequestBody CategoryRequestDTO request) {
+        return categoryService.updateCategory(id, request);
     }
 
     @DeleteMapping("/{id}")

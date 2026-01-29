@@ -2,8 +2,8 @@ package cz.osu.backend.service;
 
 import cz.osu.backend.exception.ResourceNotFoundException;
 import cz.osu.backend.model.db.Category;
-import cz.osu.backend.model.json.CategoryRequestDTO;
-import cz.osu.backend.model.json.CategoryResponseDTO;
+import cz.osu.backend.model.dto.course.CategoryRequestDTO;
+import cz.osu.backend.model.dto.course.CategoryResponseDTO;
 import cz.osu.backend.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

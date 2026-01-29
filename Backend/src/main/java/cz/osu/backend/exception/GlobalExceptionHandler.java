@@ -1,7 +1,6 @@
-package cz.osu.backend.controller;
+package cz.osu.backend.exception;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import cz.osu.backend.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;

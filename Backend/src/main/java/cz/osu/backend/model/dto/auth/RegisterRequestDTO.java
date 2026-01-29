@@ -1,5 +1,6 @@
-package cz.osu.backend.model.json;
+package cz.osu.backend.model.dto.auth;
 
+import cz.osu.backend.model.enums.UserRole;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

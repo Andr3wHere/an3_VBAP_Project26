@@ -1,4 +1,4 @@
-package cz.osu.backend.model.json;
+package cz.osu.backend.model.dto.course;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

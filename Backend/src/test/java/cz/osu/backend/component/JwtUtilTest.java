@@ -1,11 +1,23 @@
 package cz.osu.backend.component;
 
+import cz.osu.backend.security.JwtUtil;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class JwtUtilTest {
-    private final JwtUtil jwtUtil = new JwtUtil();
+    private JwtUtil jwtUtil;
+
+    @BeforeEach
+    void setUp() {
+        jwtUtil = new JwtUtil();
+        ReflectionTestUtils.setField(jwtUtil, "secret", "MySuperSecretKeyForJwtSigning1234567890");
+        ReflectionTestUtils.setField(jwtUtil,"EXPIRATION_TIME",86400000);
+        jwtUtil.init();
+    }
+
 
     @Test
     void testTokenGenerationAndExtraction() {

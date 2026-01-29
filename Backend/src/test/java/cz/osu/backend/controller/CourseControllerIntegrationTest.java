@@ -1,9 +1,9 @@
 package cz.osu.backend.controller;
 
-import cz.osu.backend.component.JwtUtil;
+import cz.osu.backend.security.JwtUtil;
 import cz.osu.backend.model.db.Category;
 import cz.osu.backend.model.db.User;
-import cz.osu.backend.model.json.UserRole;
+import cz.osu.backend.model.enums.UserRole;
 import cz.osu.backend.repository.CategoryRepository;
 import cz.osu.backend.repository.UserRepository;
 import org.junit.jupiter.api.Test;

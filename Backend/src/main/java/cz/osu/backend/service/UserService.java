@@ -3,7 +3,7 @@ package cz.osu.backend.service;
 import cz.osu.backend.exception.ResourceNotFoundException;
 import cz.osu.backend.model.db.Course;
 import cz.osu.backend.model.db.User;
-import cz.osu.backend.model.json.UserRequestDTO;
+import cz.osu.backend.model.dto.user.UserRequestDTO;
 import cz.osu.backend.repository.CourseRepository;
 import cz.osu.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

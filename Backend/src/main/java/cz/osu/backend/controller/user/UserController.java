@@ -1,7 +1,7 @@
-package cz.osu.backend.controller;
+package cz.osu.backend.controller.user;
 
 import cz.osu.backend.model.db.User;
-import cz.osu.backend.model.json.UserRequestDTO;
+import cz.osu.backend.model.dto.user.UserRequestDTO;
 import cz.osu.backend.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +19,13 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable UUID id) {
-        return ResponseEntity.ok(userService.getUserById(id));
+    public User getUserById(@PathVariable UUID id) {
+        return userService.getUserById(id);
     }
 
     @GetMapping("/name/{username}")
-    public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
-        return ResponseEntity.ok(userService.getUserByUsername(username));
+    public User getUserByUsername(@PathVariable String username) {
+        return userService.getUserByUsername(username);
     }
 
     @PutMapping("/{id}")
@@ -40,7 +40,7 @@ public class UserController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable UUID id) {
         userService.deleteUser(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/{userId}/enroll/{courseId}")
@@ -49,9 +49,9 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/{userId}/unenroll/{courseId}")
+    @DeleteMapping("/{userId}/unenroll/{courseId}")
     public ResponseEntity<Void> unenrollUserFromCourse(@PathVariable UUID userId, @PathVariable UUID courseId) {
         userService.unenrollUserFromCourse(userId, courseId);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }

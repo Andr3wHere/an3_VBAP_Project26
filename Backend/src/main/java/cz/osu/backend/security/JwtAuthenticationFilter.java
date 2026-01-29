@@ -1,4 +1,4 @@
-package cz.osu.backend.component;
+package cz.osu.backend.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

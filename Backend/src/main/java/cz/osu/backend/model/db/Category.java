@@ -1,16 +1,13 @@
 package cz.osu.backend.model.db;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "categories", indexes = {@Index(name = "idx_name", columnList = "name", unique = true)})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,9 +16,11 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Column(unique = true)
     private String name;
 
     @OneToMany(mappedBy = "category")
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<Course> courses;
 }

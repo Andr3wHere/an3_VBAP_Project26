@@ -3,7 +3,7 @@ package cz.osu.backend.service;
 import cz.osu.backend.exception.ResourceNotFoundException;
 import cz.osu.backend.model.db.Course;
 import cz.osu.backend.model.db.Lesson;
-import cz.osu.backend.model.json.LessonRequestDTO;
+import cz.osu.backend.model.dto.course.LessonRequestDTO;
 import cz.osu.backend.repository.CourseRepository;
 import cz.osu.backend.repository.LessonRepository;
 import jakarta.validation.Valid;

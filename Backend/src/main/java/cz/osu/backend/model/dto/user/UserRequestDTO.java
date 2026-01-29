@@ -1,4 +1,4 @@
-package cz.osu.backend.model.json;
+package cz.osu.backend.model.dto.user;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

@@ -1,10 +1,9 @@
 package cz.osu.backend.service;
 
 import cz.osu.backend.exception.ResourceNotFoundException;
-import cz.osu.backend.model.db.Category;
 import cz.osu.backend.model.db.Course;
-import cz.osu.backend.model.json.CourseRequestDTO;
-import cz.osu.backend.model.json.CourseResponseDTO;
+import cz.osu.backend.model.dto.course.CourseRequestDTO;
+import cz.osu.backend.model.dto.course.CourseResponseDTO;
 import cz.osu.backend.repository.CategoryRepository;
 import cz.osu.backend.repository.CourseRepository;
 import cz.osu.backend.repository.UserRepository;

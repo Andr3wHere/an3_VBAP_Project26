@@ -105,4 +105,32 @@ class UserServiceTest {
 
         verify(userRepository, times(1)).save(fakeUser);
     }
+
+    @Test
+    void enrollUserToTwoCourses_ValidInputs_ShouldAddTwoCourses() {
+        UUID userId = UUID.randomUUID();
+        UUID courseId1 = UUID.randomUUID();
+        UUID courseId2 = UUID.randomUUID();
+
+        User fakeUser = new User();
+        fakeUser.setId(userId);
+
+        Course fakeCourse1 = new Course();
+        fakeCourse1.setId(courseId1);
+
+        Course fakeCourse2 = new Course();
+        fakeCourse2.setId(courseId2);
+
+        when(userRepository.getUserById(userId)).thenReturn(Optional.of(fakeUser));
+        when(courseRepository.findById(courseId1)).thenReturn(Optional.of(fakeCourse1));
+        when(courseRepository.findById(courseId2)).thenReturn(Optional.of(fakeCourse2));
+
+        userService.enrollUserToCourse(userId, courseId1);
+        userService.enrollUserToCourse(userId, courseId2);
+
+        assertTrue(fakeUser.getCourses().contains(fakeCourse1));
+        assertTrue(fakeUser.getCourses().contains(fakeCourse2));
+
+        verify(userRepository, times(2)).save(fakeUser);
+    }
 }

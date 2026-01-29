@@ -1,11 +1,8 @@
 package cz.osu.backend.model.db;
 
-import cz.osu.backend.model.json.UserRole;
+import cz.osu.backend.model.enums.UserRole;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.List;
@@ -13,7 +10,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", indexes = {@Index(name = "idx_username", columnList = "username", unique = true)})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,13 +31,18 @@ public class User {
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "enrollments", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Course> courses = new HashSet<>();
 
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<Review> reviews;
 
     @OneToMany
     @JoinColumn(name = "course_id")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<Course> taughtCourses;
 }

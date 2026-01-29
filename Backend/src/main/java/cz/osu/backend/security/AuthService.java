@@ -1,10 +1,9 @@
-package cz.osu.backend.service;
+package cz.osu.backend.security;
 
-import cz.osu.backend.component.JwtUtil;
 import cz.osu.backend.model.db.User;
-import cz.osu.backend.model.json.LoginRequestDTO;
-import cz.osu.backend.model.json.RegisterRequestDTO;
-import cz.osu.backend.model.json.UserRole;
+import cz.osu.backend.model.dto.auth.LoginRequestDTO;
+import cz.osu.backend.model.dto.auth.RegisterRequestDTO;
+import cz.osu.backend.model.enums.UserRole;
 import cz.osu.backend.repository.UserRepository;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;

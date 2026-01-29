@@ -1,8 +1,8 @@
-package cz.osu.backend.controller;
+package cz.osu.backend.controller.auth;
 
-import cz.osu.backend.model.json.LoginRequestDTO;
-import cz.osu.backend.model.json.RegisterRequestDTO;
-import cz.osu.backend.service.AuthService;
+import cz.osu.backend.model.dto.auth.LoginRequestDTO;
+import cz.osu.backend.model.dto.auth.RegisterRequestDTO;
+import cz.osu.backend.security.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

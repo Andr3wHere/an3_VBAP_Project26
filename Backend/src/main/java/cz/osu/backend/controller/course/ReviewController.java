@@ -1,8 +1,8 @@
-package cz.osu.backend.controller;
+package cz.osu.backend.controller.course;
 
 import cz.osu.backend.model.db.Review;
-import cz.osu.backend.model.json.ReviewRequestDTO;
-import cz.osu.backend.model.json.ReviewResponseDTO;
+import cz.osu.backend.model.dto.course.ReviewRequestDTO;
+import cz.osu.backend.model.dto.course.ReviewResponseDTO;
 import cz.osu.backend.service.ReviewService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -21,18 +21,18 @@ public class ReviewController {
     }
 
     @PostMapping
-    public ResponseEntity<Review> createReview(@Valid @RequestBody ReviewRequestDTO request) {
-        return ResponseEntity.ok(reviewService.createReview(request));
+    public Review createReview(@Valid @RequestBody ReviewRequestDTO request) {
+        return reviewService.createReview(request);
     }
 
     @GetMapping("/course/{courseId}")
-    public ResponseEntity<List<ReviewResponseDTO>> getReviewsByCourse(@PathVariable UUID courseId) {
-        return ResponseEntity.ok(reviewService.getReviewsByCourse(courseId));
+    public List<ReviewResponseDTO> getReviewsByCourse(@PathVariable UUID courseId) {
+        return reviewService.getReviewsByCourse(courseId);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Review> getReviewById(@PathVariable UUID id) {
-        return ResponseEntity.ok(reviewService.getReviewById(id));
+    public Review getReviewById(@PathVariable UUID id) {
+        return reviewService.getReviewById(id);
     }
 
     @PutMapping("/{id}")
@@ -47,11 +47,11 @@ public class ReviewController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteReview(@PathVariable UUID id) {
         reviewService.deleteReview(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<ReviewResponseDTO>> getReviewsByUser(@PathVariable UUID userId) {
-        return ResponseEntity.ok(reviewService.getReviewsByUser(userId));
+    public List<ReviewResponseDTO> getReviewsByUser(@PathVariable UUID userId) {
+        return reviewService.getReviewsByUser(userId);
     }
 }

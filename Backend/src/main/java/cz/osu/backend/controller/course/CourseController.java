@@ -1,8 +1,8 @@
-package cz.osu.backend.controller;
+package cz.osu.backend.controller.course;
 
 import cz.osu.backend.model.db.Course;
-import cz.osu.backend.model.json.CourseRequestDTO;
-import cz.osu.backend.model.json.CourseResponseDTO;
+import cz.osu.backend.model.dto.course.CourseRequestDTO;
+import cz.osu.backend.model.dto.course.CourseResponseDTO;
 import cz.osu.backend.service.CourseService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
@@ -32,13 +32,13 @@ public class CourseController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<CourseResponseDTO>> getAllCourses(Pageable pageable) {
-        return ResponseEntity.ok(courseService.getAllCourses(pageable));
+    public Page<CourseResponseDTO> getAllCourses(Pageable pageable) {
+        return courseService.getAllCourses(pageable);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Course> getCourseById(@PathVariable UUID id) {
-        return ResponseEntity.ok(courseService.getCourseById(id));
+    public Course getCourseById(@PathVariable UUID id) {
+        return courseService.getCourseById(id);
     }
 
     @PutMapping("/{id}")
@@ -57,7 +57,7 @@ public class CourseController {
     }
 
     @GetMapping("/teacher/{teacherId}")
-    public ResponseEntity<List<CourseResponseDTO>> getCoursesByTeacher(@PathVariable UUID teacherId) {
-        return ResponseEntity.ok(courseService.getCoursesByTeacher(teacherId));
+    public List<CourseResponseDTO> getCoursesByTeacher(@PathVariable UUID teacherId) {
+        return courseService.getCoursesByTeacher(teacherId);
     }
 }
